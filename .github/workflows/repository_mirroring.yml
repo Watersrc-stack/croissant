@@ -14,3 +14,4 @@ jobs:
         with:
           target_repo_url: git@github.com:EpitechPromo2028/B-DOP-200-MPL-2-1-bschocolatine-killian.cassard.git
           ssh_private_key: ${{ secrets.SSH_PASS }}
+
