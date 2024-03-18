@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get the current time
-        run: echo "::set-output name=time::$(date)"
+        run: date
 
