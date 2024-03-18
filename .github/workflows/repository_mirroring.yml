@@ -3,7 +3,8 @@ name: Mirroring
 on: [push, delete]
 
 jobs:
-  to_gitlab:
+  mirroring:
+    if: github.repository == 'Watersrc-stack/croissant'
     runs-on: ubuntu-latest
     steps:                                              # <-- must use actions/checkout before mirroring!
       - uses: actions/checkout@v3
