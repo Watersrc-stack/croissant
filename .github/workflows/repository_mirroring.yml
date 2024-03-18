@@ -1,0 +1,14 @@
+name: croissant_mirroring
+
+on: [push, delete]
+
+jobs:
+  mirroring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirroring
+        uses: pixta-dev/repository-mirroring-action@main
+        with:
+          target_repo_url: 'https://github.com/EpitechPromo2028/B-DOP-200-MPL-2-1-bschocolatine-killian.cassard'
+          target_repo_token: ${{ secrets.SSH_PASS }}
+
