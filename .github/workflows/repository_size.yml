@@ -1,4 +1,4 @@
-name: Repo size
+name: croissant_size
 
 on:
   push:
@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  get_repository_size:
+  get_size:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Fetch repo
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Display branch name
-      run: echo "Running on  branch: ${{ github.ref }}"
+      - name: Display current branch
+        run: echo "Current branch is ${{ github.ref }}"
 
-    - name: Calculate repository size
-      run: du -skh --exclude=".git" .
+      - name: Get repository size
+        run: du -skh --exclude=.git
+
