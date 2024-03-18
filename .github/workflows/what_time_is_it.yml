@@ -1,0 +1,14 @@
+name: croissant_time
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  get_date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the current time
+        run: echo "::set-output name=time::$(date)"
+
