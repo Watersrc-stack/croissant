@@ -1,17 +1,19 @@
-name: croissant_mirroring
+name: Mirroring
 
 on: [push, delete]
 
 jobs:
   mirroring:
+    if: github.repository == 'Watersrc-stack/croissant'
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Mirroring
-        uses: pixta-dev/repository-mirroring-action@v1.1.1
+    steps:                                              # <-- must use actions/checkout before mirroring!
+      - uses: actions/checkout@v3
         with:
-          target_repo_url: git@github.com:EpitechPromo2028/B-DOP-200-MPL-2-1-bschocolatine-killian.cassard.git
-          ssh_private_key: ${{ secrets.SSH_PASS }}
-
+          fetch-depth: 0
+      - uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url:
+            git@github.com:EpitechPromo2028/B-DOP-200-MPL-2-1-bschocolatine-killian.cassard.git
+          ssh_private_key:                              # <-- use 'secrets' to pass credential information.
+            ${{ secrets.SSH_PASS }}
+            
